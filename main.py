@@ -1,10 +1,10 @@
 #IMPORTING LIBRARIES
 from typing import Optional
 from fastapi import FastAPI, Response , status, HTTPException
-from fastapi.params import Body 
+# from fastapi.params import Body 
 from pydantic import BaseModel
 from random import randrange
-
+import uvicorn
 #creating classs
 app = FastAPI()
 
@@ -73,4 +73,5 @@ def get_post(id:int, response:Response): #Converting id to integer, response var
      print(post)
      return{"post detail:": post}
 
-
+if __name__ == '__main__':
+    uvicorn.run(app, host="0.0.0.0", port=8000)
